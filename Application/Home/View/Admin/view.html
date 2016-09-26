@@ -1,0 +1,63 @@
+<extend name="index" />
+<block name="admin-content">
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="confirmModalLabel">提示信息</h4>
+      </div>
+      <div class="modal-body">
+       	<p class="text-danger">
+       		<h4 class="text-danger modal-text"></h4>
+       	</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <a href="#"class="btn btn-danger modal-action-btn"><i class="fa fa-trash"></i> 删除</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+	<div class="col-md-12">
+		<div class="col-sm-2">
+			<img src="__PUBLIC__/uploads/book/<{$book.image}>" alt="<{$book.title}>封面" height="100px">
+		</div>
+		<div class="col-sm-6">
+			<h2><{$book.title}></h2>
+		</div>
+		<div class="col-sm-4">
+			<h2>
+				<a href="__CONTROLLER__/update/book/<{$book.guid}>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>&nbsp;&nbsp;修改</a>
+				<a href="javascript:;"class="btn btn-danger btn-sm" onclick="showDeleteModal(this,'确认删除书籍?操作不可逆!');" GUID="__CONTROLLER__/deleteBook/book/<{$book.guid}>"><i class="fa fa-trash"></i>&nbsp;&nbsp;删除</a>
+			</h2>
+		</div>
+	</div>
+	<div class="col-md-12 margin-top-px">
+		<div class="col-sm-3">
+			<h3><small>作者：<{$book.author}></small></h3>
+		</div>
+		<div class="col-sm-3">
+			<h3><small>出版：<{$book.book_time_date}></small></h3>
+		</div>
+		<div class="col-sm-5">
+			<h3><small>收录：<{$book.reg_time_date}></small></h3>
+		</div>
+	</div>
+	<div class="col-md-12 margin-top-px">
+		<div class="col-sm-12 well">
+			<p class="text-indent"><{$book.description}></p>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="col-sm-12 ">
+			<p class="text-indent"><{$book.content}></p>
+		</div>
+	</div>
+</div>
+
+</block>
+</extend>

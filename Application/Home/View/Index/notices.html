@@ -1,0 +1,29 @@
+<extend name="index" />
+<block name="index-content">
+<div class="container" style="margin-top:30px;">
+   <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>公告列表</h4>                
+            </div>
+            <div class="panel-body">
+                <volist name="notices" id="notice">
+                    
+                        <a href="__CONTROLLER__/notice/view/<{$notice.guid}>">
+                            <div >
+                                <p>
+                                    <strong><{$notice.title}></strong>&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ： <{$notice.time_date}>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </p>
+                            </div>
+                             <hr>
+                        </a>
+                       
+                </volist>
+            </div>
+        </div>
+    </div> 
+</div>
+
+</block>
+</extend>

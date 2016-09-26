@@ -1,0 +1,63 @@
+<extend name="index" />
+<block name="admin-content">
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="confirmModalLabel">提示信息</h4>
+      </div>
+      <div class="modal-body">
+       	<p class="text-danger">
+       		<h4 class="text-danger modal-text"></h4>
+       	</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <a href="#"class="btn btn-danger modal-action-btn"><i class="fa fa-trash"></i> 删除</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="rwo">
+		<div class="col-md-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4><i class="fa fa-comments-o"></i> &nbsp;&nbsp;留言列表</h4>
+				</div>
+				<volist name="comments" id="comment">
+					<div class="list-group-item">
+                        <p>
+                        	<i class="fa fa-user"></i> ：<{$comment.name}>&nbsp; | &nbsp;<i class="fa fa-clock-o"></i>：<{$comment.time_date}>
+                        	<if condition="$comment.ischeck eq 1">
+								<span class="red-font">&nbsp;&nbsp; 已经审核</span>
+							<else />
+								<span class="text-primary">&nbsp;&nbsp;未审核</span>
+							</if>
+                    	</p>
+                    	<p><i class="fa fa-envelope"></i>：<{$comment.email}></p>
+                        <p class="text-indent comment-item-box"><{$comment.content}></p>
+                        <p class="text-right">
+							<if condition="$comment.ischeck eq 0">
+								<a href="__CONTROLLER__/check/comment/<{$comment.guid}>"class="btn btn-info btn-xs"><i class="fa fa-check"></i></a>
+								<a href="javascript:;"class="btn btn-danger btn-xs" onclick="showDeleteModal(this);" GUID="__CONTROLLER__/deleteComment/comment/<{$comment.guid}>"><i class="fa fa-trash"></i></a>
+							<else />
+								<a href="__CONTROLLER__/check/comment/<{$comment.guid}>"class="btn btn-warning btn-xs"><i class="fa fa-close"></i></a>
+								<a href="javascript:;"class="btn btn-danger btn-xs" onclick="showDeleteModal(this,'确定删除该留言?不可撤销!');" GUID="__CONTROLLER__/deleteComment/comment/<{$comment.guid}>"><i class="fa fa-trash"></i></a>
+							</if>
+                    	</p>
+					</div>
+				</volist>
+				<div class="panel-footer">
+					<ul class="pager ">
+						<{$show}>
+					</ul>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</block>
+</extend>

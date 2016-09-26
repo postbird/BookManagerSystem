@@ -1,0 +1,36 @@
+<extend name="index" />
+<block name="index-content">
+<div class="container"style="margin-top:30px; ">
+	<div class="col-md-12">
+		<div class="col-sm-2">
+			<img src="__PUBLIC__/uploads/book/<{$book.image}>" alt="<{$book.title}>封面" height="100px">
+		</div>
+		<div class="col-sm-10">
+			<h2><{$book.title}></h2>
+		</div>
+	</div>
+	<div class="col-md-12 margin-top-px">
+		<div class="col-sm-3">
+			<h3><small>作者：<{$book.author}></small></h3>
+		</div>
+		<div class="col-sm-3">
+			<h3><small>出版：<{$book.book_time_date}></small></h3>
+		</div>
+		<div class="col-sm-5">
+			<h3><small>收录：<{$book.reg_time_date}></small></h3>
+		</div>
+	</div>
+	<div class="col-md-12 margin-top-px">
+		<div class="col-sm-12 well">
+			<p class="text-indent"><{$book.description}></p>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="col-sm-12 ">
+			<p class="text-indent"><{$book.content}></p>
+		</div>
+	</div>
+</div>
+
+</block>
+</extend>

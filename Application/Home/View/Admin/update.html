@@ -1,0 +1,124 @@
+<extend name="index" />
+<block name="admin-content">
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script>
+        KindEditor.ready(function(K) {
+            window.editor = K.create('textarea[name="bookcontent"]',{
+                themeType : 'simple',
+                allowFileUpload:false,
+                resizeType:1,
+                width:"100%",
+                filterMode : false, //不会过滤HTML代码
+                dialogAlignType:"page",
+                afterChange:function (){
+                    checkBookForm(this.text());
+                },
+                afterCreate:function() {
+                    this.sync();
+                    this.html($(".tmp-html-div").html());
+                },
+                afterBlur:function(){
+                    this.sync();
+                }       
+            });
+        });
+</script>
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4>新书籍</h4>
+		</div>
+		<div class="panel-body ">
+		<div class="col-md-12">
+			<form action="__CONTROLLER__/updateAction" method="post" enctype="multipart/form-data">
+				<div class="form-group col-sm-12">
+					<div class="col-sm-3 text-center">
+						<label for="booktitle"><h4>书名</h4></label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="booktitle" oninput="checkBookForm(editor.text())" placeholder="书籍的名称....."id="booktitle" value="<{$book.title}>">
+					</div>
+				</div>
+				<div class="form-group col-sm-12">
+					<div class="col-sm-3 text-center">
+						<label for="bookauthor"><h4>作者</h4></label>
+					</div>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" name="bookauthor" oninput="checkBookForm(editor.text())" placeholder="书籍的作者....."id="bookauthor" value="<{$book.author}>">
+					</div>
+					<div class="col-sm-3 text-center">
+						<label for="picBooktime"><h4>出版时间</h4></label>
+					</div>
+					<div class="col-sm-3">
+						<input type="text" class="form-control report-start-time" name="booktime"id="picBooktime"placeholder="书籍的出版时间...."oninput="checkBookForm(editor.text())" value="<{$book.book_time_date}>">
+					</div>
+					 <script>
+	          		      // $('#picBooktime').val(new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+(new Date().getDate()*1-1));
+	                      $('#picBooktime').datepicker({
+	                          format: "yyyy-mm-dd",
+	                          language: "cn",
+	                          autoclose: true,
+	                          todayHighlight: true
+	                      });
+	                  </script>
+				</div>
+				<div class="form-group col-sm-12">
+					<div class="col-sm-3 text-center">
+						<label for="booktag"><h4>标签</h4></label>
+					</div>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="booktag" id="booktag"placeholder="请使用英文逗号( , )分开....."id="booktag"oninput="checkBookForm(editor.text())" value="<{$book.tag}>">
+					</div>
+				</div>
+				<div class="form-group col-sm-12">
+					<div class="col-sm-3 text-center">
+						<label for="bookimage"><h4>封面</h4></label>
+					</div>
+					<div class="col-sm-9">
+						<input type="file"name="bookimage" id="bookimage"  accept="image/*" oninput="checkBookForm(editor.text())">
+						<p class="red-font"><small>* 如果封面图片未更改则不需要进行修改</small></p>
+						<p class="red-font"><small>* 图片推荐 2:3 或者 3:4 比例,推荐最小尺寸为600px*400px</small></p>
+					</div>
+					<!-- 如果不上传就使用之前的 -->
+					<input type="hidden" name="bookoldimage" value="<{$book.image}>">
+					<input type="hidden" name="bookguid" value="<{$book.guid}>">
+				</div>
+				<div class="form-group col-sm-12">
+					<div class="col-sm-3 text-center">
+						<label for="bookdescription"><h4>介绍</h4></label>
+					</div>
+					<div class="col-sm-9">
+						<textarea type="text" class="form-control" name="bookdescription"placeholder="书籍的简单描述....."id="bookdescription"oninput="checkBookForm(editor.text())"><{$book.description}>
+						</textarea>
+					</div>
+				</div>
+				<div class="form-group col-sm-12">
+					<div class="col-sm-3 text-center">
+						<label for="bookcontent"><h4>内容</h4></label>
+					</div>
+					<div class="col-sm-9">
+					<div class="hidden tmp-html-div">
+						<{$book.content}>
+					</div>
+						<textarea name="bookcontent" id="bookcontent" >
+							
+						</textarea>
+					</div>
+				</div>
+		</div>
+
+		</div>
+		<div class="panel-footer text-right">
+			<input id="bookSubmitBtn" type="submit"value="修改" disabled="true"class="btn btn-success disabled"title="所有信息都是必填信息">
+		</div>
+	</form>			
+	</div>
+	<div class="col-md-12">
+		
+	</div>
+	
+</div>
+
+</block>
+</extend>

@@ -1,0 +1,65 @@
+<extend name="index" />
+<block name="index-content">
+<div class="container" style="margin-top:30px;min-height: 600px;">
+   <div class="row">
+   <div class="col-md-12">
+       <div class="panel panel-info">
+           <div class="panel-heading">
+               <h4>添加留言&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comment-o"></i>：共  <{$count}>  条</h4>
+           </div>
+           <form action="__CONTROLLER__/addComment/" method="post">
+               <div class="panel-body">
+                   <div class="col-md-12">
+                       <div class="col-md-2">
+                           <h4><label for="name">姓名：</label></h4>
+                       </div>
+                       <div class="col-md-4">
+                           <input type="text" class="form-control" name="name" placeholder="默认匿名..." id="name">        
+                       </div>
+                       <div class="col-md-2">
+                           <h4><label for="email">邮箱：</label></h4>
+                       </div>
+                       <div class="col-md-4">
+                           <input type="text" class="form-control" name="email" placeholder="默认匿名..." id="email">        
+                       </div>
+                   </div>
+                   <div class="col-md-12">
+                       <div class="col-md-2">
+                           <h4><label for="content">内容：</label></h4>
+                       </div>
+                       <div class="col-md-10">
+                           <textarea name="content"  rows="5" class="form-control" placeholder="不能为空..."></textarea>
+                       </div>
+                   </div>
+               </div>
+               <div class="panel-footer text-right">
+                    <input type="submit" class="btn btn-primary" value="提交留言">
+               </div>
+           </form>
+       </div>
+   </div>
+       <div class="col-md-12">
+           <volist name="comments" id="comment">
+                <div class="panel panel-default wow fadeIn">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-user"></i> &nbsp; ：&nbsp;<{$comment.name}>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-clock-o"></i> &nbsp; ：&nbsp;<{$comment.time_date}></h4>
+                    </div>
+                    <div class="panel-body">
+                        <p class="comment-item-box">
+                            <{$comment.content}>
+                        </p>
+                    </div>
+                </div>
+           </volist>
+       </div>
+       <div class="col-md-12">
+           <hr>
+           <ul class="pager">
+               <{$show}>
+           </ul>
+       </div>
+   </div>
+</div>
+
+</block>
+</extend>

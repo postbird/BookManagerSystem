@@ -1,0 +1,57 @@
+<extend name="index" />
+<block name="admin-content">
+
+<div class="container ">
+	<div class="col-md-12">
+		<div class="col-md-6">
+			<div class="warning-box well text-center ">
+					<h4>当前 <{$count}> 本书</h4>
+			</div>
+		</div>
+		<div class="col-sm-6 text-right">
+			<a href="__CONTROLLER__/addBook">
+				<div class="primary-box text-center ">
+					<h4><i class="fa fa-plus"></i>  新增图书</h4>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<hr>
+	</div>
+</div><!--container-->
+<div>
+	<div class="container" style="margin-left:auto;margin-right: auto;">
+		<volist name="books" id="book">
+			<div class="col-md-2 book-item-box" onmouseover="showBookDescription(this);" onmouseleave="hideBookDescription(this);">
+				<div class="bottom-box" style="">
+					<div class="book-item-img">
+						<img src="__PUBLIC__/uploads/book/<{$book.image}>" alt="<{$book.title}>封面">
+					</div>
+					<hr>
+					<div class="book-item-info">
+						<h5>作者：<{$book.author}></h5>
+						<h5>标签：<{$book.tag}></h5>
+					</div>
+				</div>
+				<div hidden class="top-box"style="">
+					<div class="book-item-description ">
+						<p class="text-indent"><{$book.description}></p>
+						<a href="__CONTROLLER__/view/book/<{$book.guid}>" target="_blank"class="btn btn-primary btn-lg center-block">查看</a>
+					</div>
+				</div>
+			</div>
+		</volist>
+	</div>
+</div>
+<div class="container">
+	<div class="col-md-12 ">
+		<hr>
+		  <ul class="pager">
+		    <{$show}>
+		  </ul>
+	</div>
+</div><!--container-->
+
+</block>
+</extend>

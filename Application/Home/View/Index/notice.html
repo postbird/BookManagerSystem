@@ -1,0 +1,24 @@
+<extend name="index" />
+<block name="index-content">
+<div class="container" style="margin-top:30px;">
+   <div class="col-md-12">
+        <h2 class="text-center"><{$notice.title}></h2>
+    </div> 
+    <div class="col-md-12">
+        <div class="col-sm-4">
+            <h3><small><i class="fa fa-clock-o"></i> ：<{$notice.time_stamp}></small></h3>
+        </div>
+        <div class="col-sm-4">
+            <h3><small><i class="fa fa-user"></i> ：<{$notice.author}></small></h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <hr>
+    </div>
+    <div class="col-md-12">
+        <{$notice.content}>
+    </div>
+</div>
+
+</block>
+</extend>

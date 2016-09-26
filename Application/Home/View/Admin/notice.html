@@ -1,0 +1,78 @@
+<extend name="index" />
+<block name="admin-content">
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script>
+        KindEditor.ready(function(K) {
+            window.editor = K.create('textarea[name="noticecontent"]',{
+                themeType : 'simple',
+                allowFileUpload:false,
+                resizeType:1,
+                width:"100%",
+                filterMode : false, //不会过滤HTML代码
+                dialogAlignType:"page",
+                afterChange:function (){
+                    checkNoticeForm(this.text());
+                },
+                afterCreate:function() {
+                    this.sync();
+                },
+                afterBlur:function(){
+                    this.sync();
+                }       
+            });
+        });
+</script>
+
+<div class="container">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>新公告</h4>
+            </div>
+            <form action="__CONTROLLER__/addNotice" method="post">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="col-sm-3 text-center">
+                            <h4><label for="noticetitle">标题</label></h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" name="noticetitle" id="noticetitle" placeholder="公告标题......" oninput="checkNoticeForm(editor.text());" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-sm-3 text-center">
+                            <h4><label for="noticecontent">内容</label></h4>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea name="noticecontent" id="noticecontent"cols="30" rows="5" placeholder="填写公告......"class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <input type="submit" class="btn btn-success disabled" id="noticeBtn" disabled="true" title="内容不能为空...."value="增加">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>历史公告</h4>                
+            </div>
+            <volist name="noticeArray" id="notice">
+                <div class="list-group-item">
+                    <p>
+                        <strong><{$notice.title}></strong>&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ： <{$notice.time_date}>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="javascript:;" class="btn btn-default btn-xs notice-list-btn notice-list-btn-<{$notice.id}>" BTNSTATUS="no" GUID="notice-list-btn-<{$notice.id}>" onclick="showNoticeContent('<{$notice.id}>')">展开 <i class="fa fa-chevron-down"></i></a>
+                    </p>
+                    <div hidden class=" notice-list notice-list-<{$notice.id}>"><{$notice.content}></div>
+                </div>
+            </volist>
+        </div>
+    </div>
+</div>
+
+</block>
+</extend>

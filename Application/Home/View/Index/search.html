@@ -1,0 +1,97 @@
+<extend name="index" />
+<block name="index-content">
+
+<div class="container "style="margin-top:30px; ">
+	<div class="col-md-12 ">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h4>查询&nbsp;&nbsp;共计 <{$count}> 册</h4>
+			</div>
+				<div class="panel-body">
+						<div class="col-md-3">
+							<input type="text" class="form-control" id="content"name="content"placeholder="查询内容..." value="<{$content}>">
+						</div>
+						<div class="col-md-2">
+						<if condition="$type eq 1">
+							<select name="type" class="form-control" id="type">
+								<option value="title" >书名</option>
+								<option value="tag">标签</option>
+								<option value="author">作者</option>
+							</select>
+						</if>
+						<if condition="$type eq 2">
+							<select name="type" class="form-control" id="type">
+								<option value="title" >书名</option>
+								<option value="tag" selected="selected">标签</option>
+								<option value="author">作者</option>
+							</select>
+						</if>
+						<if condition="$type eq 3">
+							<select name="type" class="form-control" id="type">
+								<option value="title" >书名</option>
+								<option value="tag">标签</option>
+								<option value="author"selected="selected">作者</option>
+							</select>
+						</if>	
+						</div>
+						<div class="col-md-3">
+							<button type="button" class="btn btn-primary "  KEY="NONE" VALUE="0"onclick="searchBook(this);"><i class='fa fa-search'></i>  查询</button>
+						</div>
+				</div>
+				<div hidden class="alert alert-danger alert-dismissible alert-error  col-md-12 text-center" role="alert">
+				  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				  <strong>ERROR!</strong> <span class="alert-error-msg"></span>.
+				</div>
+				<div class="panel-footer">
+					<button class="btn btn-default btn-sm " KEY="BOOK" VALUE="1"onclick="searchBook(this);">出版时间&nbsp;&nbsp;<i class=" fa fa-arrow-up"></i></button>
+					<button class="btn btn-default btn-sm " KEY="BOOK" VALUE="0"onclick="searchBook(this);">出版时间&nbsp;&nbsp;<i class=" fa fa-arrow-down"></i></button>
+					<button class="btn btn-default btn-sm " KEY="REG" VALUE="1"onclick="searchBook(this);">收录时间&nbsp;&nbsp;<i class=" fa fa-arrow-up"></i></button>
+					<button class="btn btn-default btn-sm " KEY="REG" VALUE="0"onclick="searchBook(this);">收录时间&nbsp;&nbsp;<i class=" fa fa-arrow-down"></i></button>
+				</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12">
+		<hr>
+	</div>
+</div><!--container-->
+<div>
+	<div class="container" style="margin-left:auto;margin-right: auto;">
+	<if condition="$count eq 0">
+		<h4 class="text-center red-font"><i class="fa fa-warning"></i>&nbsp;&nbsp;&nbsp;&nbsp;未查询到任何书籍!</h4>
+	<else />
+		<volist name="books" id="book">
+			<div class="col-md-2 book-item-box wow fadeIn" onmouseover="showBookDescription(this);" onmouseleave="hideBookDescription(this);">
+				<div class="bottom-box" style="">
+					<div class="book-item-img">
+						<img src="__PUBLIC__/uploads/book/<{$book.image}>" alt="<{$book.title}>封面">
+					</div>
+					<hr>
+					<div class="book-item-info">
+						<h5><{$book.title}></h5>
+						<h5>作者：<{$book.author}></h5>
+						<h5>标签：<{$book.tag}></h5>
+					</div>
+				</div>
+				<div hidden class="top-box"style="">
+					<div class="book-item-description ">
+						<p class="text-indent"><{$book.description}></p>
+						<a href="__CONTROLLER__/view/book/<{$book.guid}>" target="_blank"class="btn btn-primary btn-lg center-block">查看</a>
+					</div>
+				</div>
+			</div>
+		</volist>
+	</if>
+	</div>
+</div>
+<div class="container">
+	<div class="col-md-12 ">
+		<hr>
+		  <ul class="pager">
+		    <{$show}>
+		  </ul>
+	</div>
+</div><!--container-->
+
+</block>
+</extend>

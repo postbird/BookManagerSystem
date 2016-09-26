@@ -1,0 +1,170 @@
+[ 2016-09-19T19:08:22+08:00 ] ::1 /bookmanagersystem/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.017307s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010717s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010839s ]
+SQL: SHOW COLUMNS FROM `bms_notice` [ RunTime:0.0844s ]
+SQL: SELECT * FROM `bms_notice` ORDER BY time_stamp desc LIMIT 0,1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `bms_book` [ RunTime:0.0547s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bms_book` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `guid`,`reg_time_date`,`title`,`author`,`description`,`image`,`tag` FROM `bms_book` ORDER BY reg_time_stamp desc LIMIT 0,6   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `bms_comments` [ RunTime:0.0068s ]
+SQL: SELECT * FROM `bms_comments` WHERE ( ischeck = 1 ) ORDER BY time_stamp desc LIMIT 0,3   [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.367354s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.367432s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011419s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011468s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008853s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008906s ]
+
+[ 2016-09-19T19:08:43+08:00 ] ::1 /bookmanagersystem/Home/Index/book/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000123s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000158s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000191s ]
+SQL: SHOW COLUMNS FROM `bms_book` [ RunTime:0.0022s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bms_book` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: Page I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+NOTIC: [8] Trying to get property of non-object I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+NOTIC: [8] Undefined variable: Page I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+NOTIC: [8] Trying to get property of non-object I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+SQL: SELECT `guid`,`reg_time_date`,`title`,`author`,`description`,`image`,`tag` FROM `bms_book` ORDER BY reg_time_stamp desc  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000097s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045066s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045133s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000204s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000239s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000277s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000318s ]
+
+[ 2016-09-19T19:16:03+08:00 ] ::1 /BookManagerSystem/Home/Index/notices/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000144s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000193s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000233s ]
+SQL: SHOW COLUMNS FROM `bms_notice` [ RunTime:0.0024s ]
+SQL: SELECT `guid`,`title`,`time_date`,`author` FROM `bms_notice` ORDER BY time_stamp desc  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000130s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026795s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026859s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000193s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000164s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000195s ]
+
+[ 2016-09-19T19:16:05+08:00 ] ::1 /BookManagerSystem/Home/Index/book/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000046s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000072s ]
+SQL: SHOW COLUMNS FROM `bms_book` [ RunTime:0.0024s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bms_book` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: Page I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+NOTIC: [8] Trying to get property of non-object I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+NOTIC: [8] Undefined variable: Page I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+NOTIC: [8] Trying to get property of non-object I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 45 行.
+SQL: SELECT `guid`,`reg_time_date`,`title`,`author`,`description`,`image`,`tag` FROM `bms_book` ORDER BY reg_time_stamp desc  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004168s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004202s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000053s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000074s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000084s ]
+
+[ 2016-09-19T19:16:05+08:00 ] ::1 /BookManagerSystem/Home/Index/comments/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000057s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000092s ]
+SQL: SHOW COLUMNS FROM `bms_comments` [ RunTime:0.0021s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `bms_comments` WHERE ( ischeck = 1 ) LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: Page I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 146 行.
+NOTIC: [8] Trying to get property of non-object I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 146 行.
+NOTIC: [8] Undefined variable: Page I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 146 行.
+NOTIC: [8] Trying to get property of non-object I:\appwork\xampp\htdocs\BookManagerSystem\Application\Home\Controller\IndexController.class.php 第 146 行.
+SQL: SELECT * FROM `bms_comments` WHERE ( ischeck = 1 ) ORDER BY time_stamp desc  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000134s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026790s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026839s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000073s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000102s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000066s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000098s ]
+
+[ 2016-09-19T19:16:07+08:00 ] ::1 /BookManagerSystem/Home/Index/about/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000076s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000117s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000096s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026070s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026144s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000088s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000117s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000074s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000101s ]
+
+[ 2016-09-19T19:16:29+08:00 ] ::1 /BookManagerSystem/Home/Index/about/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000100s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000079s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000118s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003464s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003528s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000085s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000115s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000073s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000103s ]
+
